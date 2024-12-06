@@ -1,0 +1,44 @@
+{
+  "clientes": [
+    {
+      "id": "4bbe",
+      "nombre": "marten",
+      "apellido": "321",
+      "email": "marten@gmail.com",
+      "telefono": "123-123-2314",
+      "empresa": "easdas",
+      "puesto": "dddd",
+      "estado": true
+    },
+    {
+      "id": "7751",
+      "nombre": "marten",
+      "apellido": "Cillo",
+      "email": "marten@gmail.com",
+      "telefono": "123-123-2314",
+      "empresa": "dasdas",
+      "puesto": "dsadsa",
+      "estado": true
+    },
+    {
+      "id": "02ed",
+      "nombre": "marten",
+      "apellido": "Cillo",
+      "email": "marten@gmail.com",
+      "telefono": "123-123-2314",
+      "empresa": "dasdas",
+      "puesto": "dsadsa",
+      "estado": true
+    },
+    {
+      "id": "8e2a",
+      "nombre": "Julia",
+      "apellido": "Cillo",
+      "email": "juli@gmail.com",
+      "telefono": "123-123-2314",
+      "empresa": "dasdas",
+      "puesto": "dsadsa",
+      "estado": true
+    }
+  ]
+}
