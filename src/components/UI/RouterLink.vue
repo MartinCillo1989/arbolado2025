@@ -10,7 +10,7 @@
 <template>
         <RouterLink 
             :to="{name: to}"
-            class="block md:inline-block rounded bg-blue-600 py-2 px-3 text-white uppercase font-bold shadow text-sm hover:bg-blue-500">
+            class="block md:inline-block rounded bg-green-900 py-2 px-3 text-white uppercase font-bold shadow text-sm hover:bg-green-700">
                 
             <slot></slot>
         </RouterLink>

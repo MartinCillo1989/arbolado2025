@@ -46,11 +46,16 @@
 
 <template>
     <div class="flex flex-col min-h-screen">
-        <div class="flex justify-end">
+        <div class="flex justify-end space-x-4">
             <RouterLink to="agregar-cliente">
                 Agregar Censista
             </RouterLink>
+            <RouterLink to="municipio">
+                Volver
+            </RouterLink>
         </div>
+ 
+
         <Heading>{{ titulo }}</Heading>
             
   <div v-if="existenClientes" class="flow-root mx-auto  mt-10 p-5 bg-white shadow">

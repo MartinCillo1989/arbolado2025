@@ -3,13 +3,14 @@
     import ClienteService from '@/services/ClienteService';
     import RouterLink  from '../components/UI/RouterLink.vue';
     import Heading from '../components/UI/Heading.vue';
+    import Relevamiento from '../components/Relevamiento.vue';
 
-    const clientes = ref([])
+    const relevamientos = ref([])
 
     onMounted(() => {
-        ClienteService.obtenerClientes()
+        ClienteService.obtenerRelevamientos()
             .then(({data}) => {
-                clientes.value = data
+                relevamientos.value = data
             })
             .catch(error => console.log('Hubo un error'))
         })
@@ -20,10 +21,13 @@
         }
     })
 
+    const existenRelevamientos = computed(() =>{
+        return relevamientos.value.length > 0
+    })
 
 </script>
 
-<template>
+<!--<template>
   <div class="flex flex-col min-h-screen">
         <div class="flex justify-end">
             <RouterLink to="municipio">
@@ -34,7 +38,7 @@
         <div id="app" class="p-6">
     <h1 class="text-2xl font-extrabold text-slate-500">Árboles Censados</h1>
     
-    <!-- Tabla con estilos de Tailwind -->
+     Tabla con estilos de Tailwind 
     <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
       <thead>
         <tr class="bg-blue-600 text-white">
@@ -44,127 +48,47 @@
           <th class="px-6 py-3 text-left text-sm font-medium">Apellido del Censista</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Iterar sobre los datos obtenidos de la API -->
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-        <tr class="odd:bg-gray-50 even:bg-gray-100">
-          <td class="px-6 py-3 text-sm">Eucalipto</td>
-          <td class="px-6 py-3 text-sm">Los pinos 1885</td>
-          <td class="px-6 py-3 text-sm">Juan</td>
-          <td class="px-6 py-3 text-sm">Perez</td>
-        </tr>
-      </tbody>
     </table>
   </div>
 </div>
     
+</template> -->
+
+<template>
+  <div class="flex flex-col min-h-screen">
+      <div class="flex justify-end">
+          <RouterLink to="municipio">
+              Volver
+          </RouterLink>
+      </div>
+      <Heading>{{ titulo }}</Heading>
+          
+<div v-if="existenRelevamientos" class="flow-root mx-auto  mt-10 p-5 bg-white shadow">
+    <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="min-w-full py-2 align-middle sm:px-6 lg:px-8">
+            <table class="min-w-full divide-y divide-gray-300">
+                <thead>
+                <tr>
+                    <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Tipo de Árbol</th>
+                    <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Ubicación</th>
+                    <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Nombre del Censista</th>
+                    <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Apellido del Censista</th>
+                </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white">
+                  <Relevamiento
+                      v-for="relevamiento in relevamientos"
+                      :key="relevamiento.id"
+                      :relevamiento="relevamiento"
+                  />
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>     
+      <p v-else="existenRelevamientos">No hay relevamientos</p>
+  </div>
+  
 </template>
 
 
