@@ -27,33 +27,6 @@
 
 </script>
 
-<!--<template>
-  <div class="flex flex-col min-h-screen">
-        <div class="flex justify-end">
-            <RouterLink to="municipio">
-                Volver
-            </RouterLink>
-        </div>
-        <Heading>{{ titulo }}</Heading>
-        <div id="app" class="p-6">
-    <h1 class="text-2xl font-extrabold text-slate-500">Árboles Censados</h1>
-    
-     Tabla con estilos de Tailwind 
-    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-      <thead>
-        <tr class="bg-blue-600 text-white">
-          <th class="px-6 py-3 text-left text-sm font-medium">Tipo de Árbol</th>
-          <th class="px-6 py-3 text-left text-sm font-medium">Ubicación</th>
-          <th class="px-6 py-3 text-left text-sm font-medium">Nombre del Censista</th>
-          <th class="px-6 py-3 text-left text-sm font-medium">Apellido del Censista</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-</div>
-    
-</template> -->
-
 <template>
   <div class="flex flex-col min-h-screen">
       <div class="flex justify-end">
@@ -69,10 +42,10 @@
             <table class="min-w-full divide-y divide-gray-300">
                 <thead>
                 <tr>
-                    <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Tipo de Árbol</th>
-                    <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Ubicación</th>
-                    <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Nombre del Censista</th>
-                    <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Apellido del Censista</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Tipo de Árbol</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Ubicación</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Nombre del Censista</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Apellido del Censista</th>
                 </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">

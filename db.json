@@ -13,19 +13,6 @@
   ],
   
   "relevamientos": [
-    {
-      "id": "7aff",
-      "tipoArbol": "Eucalipto",
-      "ubicacion": "Los pinos 1885",
-      "nombre": "Juan",
-      "apellido": "Sosa"
-    },
-    {
-      "id": "2aff",
-      "tipoArbol": "Álamo",
-      "ubicacion": "1° de mayo 1958",
-      "nombre": "José",
-      "apellido": "Hernandez"
-    }
+    
   ]
 }
