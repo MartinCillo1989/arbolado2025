@@ -30,7 +30,7 @@
 
     const handleSubmit= (data) => {
         ClienteService.actualizarCliente(id, data)
-        .then(() => router.push({name: 'listado-clientes'}))
+        .then(() => router.push({name: 'inicio'}))
         .catch(error => console.log(error))
     }
 

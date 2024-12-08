@@ -1,18 +1,33 @@
 {
-  "clientes": [
+  "clientes": [],
+  "relevamientos": [
     {
       "id": "7aff",
-      "nombre": "marten",
-      "apellido": "Cillo",
-      "email": "marten@gmail.com",
-      "telefono": "123-123-2314",
-      "empresa": "Pepe",
-      "puesto": "Jos",
-      "estado": 1
+      "tipoArbol": "Eucalipto",
+      "ubicacion": "Los pinos 1885",
+      "nombre": "Juan",
+      "apellido": "Sosa"
+    },
+    {
+      "id": "2aff",
+      "tipoArbol": "Álamo",
+      "ubicacion": "1° de mayo 1958",
+      "nombre": "José",
+      "apellido": "Hernandez"
+    },
+    {
+      "id": "7aff",
+      "tipoArbol": "Eucalipto",
+      "ubicacion": "Los pinos 1885",
+      "nombre": "Juan",
+      "apellido": "Sosa"
+    },
+    {
+      "id": "2aff",
+      "tipoArbol": "Álamo",
+      "ubicacion": "1° de mayo 1958",
+      "nombre": "José",
+      "apellido": "Hernandez"
     }
-  ],
-  
-  "relevamientos": [
-    
   ]
 }
