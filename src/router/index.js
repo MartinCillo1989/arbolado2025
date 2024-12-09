@@ -40,6 +40,17 @@ const router = createRouter({
       component: () => import('../views/Intervenciones.vue'),
       props: {titulo: 'Intervenciones'}
     },
+    {
+      path: '/home',
+      name: 'home',
+      component: () => import('../views/HomeView.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue'),
+      props: {titulo: 'Login'}
+    }
     
   ],
 })
