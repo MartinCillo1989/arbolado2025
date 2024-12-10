@@ -1,5 +1,36 @@
 {
-  "clientes": [],
+  "clientes": [
+    {
+      "id": "3587",
+      "nombre": "Martin",
+      "apellido": "Pérez",
+      "email": "marten@gmail.com",
+      "telefono": "341-355-5454",
+      "empresa": "Azure",
+      "puesto": "Jefe",
+      "estado": 1
+    },
+    {
+      "id": "c5e3",
+      "nombre": "Juan",
+      "apellido": "José",
+      "email": "juan@gmail.com",
+      "telefono": "123-123-2314",
+      "empresa": "Google",
+      "puesto": "Jr",
+      "estado": 1
+    },
+    {
+      "id": "b74a",
+      "nombre": "Fabricio",
+      "apellido": "Corsalini",
+      "email": "fabri@gmail.com",
+      "telefono": "325-526-5132",
+      "empresa": "Mdsadsa",
+      "puesto": "sdasdsa",
+      "estado": 1
+    }
+  ],
   "relevamientos": [
     {
       "id": "7aff",
