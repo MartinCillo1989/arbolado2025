@@ -82,80 +82,62 @@ function initMap() {
 </script>
 
 <template>
+
   <!-- frase inicial y boton de Sign Up -->
-  <div id="frase" class="flex justify-between px-32 pt-10">
-    <p class="text-4xl font-bold">Municipios <br>  
-      <span class="text-gray-500 font-bold">
-        Somos {{ locations.length }} municipios activos contra el cambio climático
-      </span>
+  <div id="frase" class="flex flex-col md:flex-row justify-between items-center md:px-32 pt-10 pb-6">
+    <p class="text-2xl md:text-4xl font-bold text-center md:text-left">Municipios <br>  
+      <span class="text-gray-500 font-bold">Somos {{ locations.length }} municipios activos contra el cambio climático</span>
     </p>
     <button 
-    class="text-white rounded-full w-32 h-10 bg-[#022926] hover:bg-[#022926cb]">
-    <RouterLink to="login">
+      class="mt-4 md:mt-0 text-white rounded-full px-6 py-2 bg-[#022926] hover:bg-[#022926cb]">
+      <RouterLink to="login">
         Sign Up
-    </RouterLink>
-  </button>
+      </RouterLink>
+    </button>
   </div>
 
   <!-- Mapa de Argentina -->
-  <div id="datos-y-mapa" class="flex h-screen justify-evenly pt-10 -mb-40">
-    <div id="map" class="relative w-4/5 h-4/5 rounded-2xl overflow-hidden">
-      <div id="map-info" class="absolute left-2 h-full w-1/2 rounded-2xl bg-[#365351] backdrop-blur-sm p-10">
-        <h5 class="pt-10 text-white text-4xl font-bold opacity-30">Municipios</h5>
-        <h3 class="pb-5 text-white text-7xl font-bold my-5">
-          Somos {{ locations.length }} municipios activos contra el cambio climático
-        </h3>
+  <div id="datos-y-mapa" class="flex flex-col md:px-28 md:flex-row justify-between items-center md:space-x-6 pt-14">
+    <div id="map" class="relative w-full md:w-3/5 h-96 md:h-[500px] rounded-2xl overflow-hidden">
+      <div id="map-info" class="absolute left-2 h-full md:w-1/2 rounded-2xl bg-[#365351] p-6">
+        <h5 class="text-white text-2xl md:text-4xl font-bold opacity-70">Municipios</h5>
+        <h3 class="text-white text-3xl md:text-5xl font-bold my-4">Somos {{ locations.length }} municipios activos contra el cambio climático</h3>
       </div>
-
-      <div ref="mapElement" class="absolute right-4 w-1/2 h-full rounded-2xl"></div>
+      <div ref="mapElement" class="absolute md:right-4 w-full md:w-1/2 h-full rounded-2xl"></div>
     </div>
-
-    <!-- Divs de datos a la derecha -->
-    <div id="datos" class="h-4/5 flex flex-col justify-between items-center space-y-4">
-      <div class=" w-96 h-full rounded-2xl bg-[#afc199] backdrop-blur-sm p-6 overflow-auto">
-        <p class="break-words font-bold text-5xl text-white">{{ locations.length }} Municipios</p>
-        <p class="break-words font-bold text-xl text-white"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aliquid voluptate dicta.
-        </p>
+    
+    <div id="datos" class="flex flex-col w-full md:w-3/12 md:h-[500px] space-y-6 mt-10 md:mt-0">
+      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4">
+        <p class="font-bold text-3xl md:text-4xl text-white">{{ locations.length }} Municipios</p>
+        <p class="text-white text-base md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
-      <div class=" w-96 h-full rounded-2xl bg-[#afc199] backdrop-blur-sm p-6 overflow-auto">
-        <p class="break-words font-bold text-5xl text-white">500 T</p>
-        <p class="break-words font-bold text-xl text-white"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aliquid voluptate dicta.
-        </p>
+      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4">
+        <p class="font-bold text-3xl md:text-4xl text-white">500 T</p>
+        <p class="text-white text-base md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
-      <div class=" w-96 h-full rounded-2xl bg-[#afc199] backdrop-blur-sm p-6 overflow-auto">
-        <p class="break-words font-bold text-5xl text-white">500 T</p>
-        <p class="break-words font-bold text-xl text-white"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aliquid voluptate dicta.
-        </p>
+      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4">
+        <p class="font-bold text-3xl md:text-4xl text-white">500 T</p>
+        <p class="text-white text-base md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
     </div>
   </div>
 
   <!-- Logos de socios -->
-  <div class="mb-28">
-    <div id="socios" class="w-full flex items-center h-52 px-36 justify-evenly">
-      <div id="text" class="w-1/5">
-        <p class="text-3xl">Socios comprometidos con el cambio climático</p>
-      </div>
-
-      <!-- IMPORTANTE!!! MODIFICAR A CAROUSEL CUANDO TENGA TODOS LOS LOGOS DEFINITIVOS -->
-      <div class="flex items-center justify-evenly p-6 w-4/5 overflow-x-auto scroll-snap-x snap-mandatory scrollbar-hide">
-        <img class="object-contain h-28 w-auto p-6 snap-start" src="../assets/img/0-crop (1).jpg" alt="alpa servicios ambientales">
-        <img class="object-contain h-28 w-auto p-6 snap-start" src="../assets/img/0-crop (2).jpg" alt="alpa servicios ambientales">
-        <img class="object-contain h-28 w-auto p-6 snap-start" src="../assets/img/0-crop (3).jpg" alt="alpa servicios ambientales">
-        <img class="object-contain h-28 w-auto p-6 snap-start" src="../assets/img/0-crop (4).jpg" alt="alpa servicios ambientales">
-        <img class="object-contain h-28 w-auto p-6 snap-start" src="../assets/img/0-crop (5).jpg" alt="alpa servicios ambientales">
-        <img class="object-contain h-28 w-auto p-6 snap-start" src="../assets/img/0-crop (6).jpg" alt="alpa servicios ambientales">
-        <img class="object-contain h-28 w-auto p-6 snap-start" src="../assets/img/0-crop.jpg" alt="alpa servicios ambientales">
-      </div>
-
+    <div id="socios" class="pt-14 pb-36 flex flex-col md:flex-row justify-between items-center md:px-32">
+    <h2 class="text-2xl md:w-2/5 md:text-3xl font-bold text-center p-5   mb-4">Socios comprometidos con el cambio climático</h2>
+    <div class="flex items-center justify-center space-x-4 overflow-hidden">
+      <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (1).jpg" alt="socios">
+      <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (2).jpg" alt="socios">
+      <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (3).jpg" alt="socios">
+      <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios">
     </div>
   </div>
 
   <!-- Carousel de datos -->
-   <div id="datos-actualizados" class="bg-[#b0c298] w-screen py-10">
-    <div class="flex flex-col space-y-2">
-      <h2 class="font-bold text-center text-3xl">Datos Actualizados</h2>
-      <h6 class="font-bold text-center text-3xl text-gray-500">Totales por municipios activos</h6>
+   <div id="datos-actualizados" class="bg-gradient-to-b from-[#b0c298] to-[#b0c298bd] py-16 md:w-full">
+    <div class="flex flex-col pb-10 space-y-2">
+      <h2 class="font-bold text-center text-2xl md:text-3xl">Datos Actualizados</h2>
+      <h6 class="font-bold text-center text-2xl md:text-3xl text-gray-500">Totales por municipios activos</h6>
     </div>
 
     <!-- Primer Carrusel -->
@@ -171,7 +153,7 @@ function initMap() {
     />
   </div>
 
-  <div class="h-40">
+  <div class="md:h-40">
     <p class="text-center p-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis alias sint odit ipsum ullam fugit error, necessitatibus, quas sequi veritatis voluptatum doloremque atque quasi. Omnis reiciendis neque ducimus suscipit quam!</p>
   </div>
 </template>

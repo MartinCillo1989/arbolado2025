@@ -1,5 +1,7 @@
 <script setup>
-  import { RouterView } from "vue-router";
+  import { RouterView, useRoute } from "vue-router";
+
+  const route = useRoute();
 </script>
 
 <template>
@@ -20,7 +22,7 @@
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto mt-10">
+  <main :class="route.name === 'home' ? '' : 'max-w-6xl mx-auto mt-10'">
     <RouterView />
   </main>
   <footer class="bg-black flex justify-between items-center px-8 h-24 w-full">

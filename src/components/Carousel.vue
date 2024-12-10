@@ -49,7 +49,6 @@
       >
         <h5 class="text-center text-4xl font-bold pb-3">{{ items.length }}</h5>
         <h4 class="text-center text-l font-semibold p-3">{{ item.name }}</h4>
-        <p class="text-center mt-2 text-sm pt-3">Provincia</p>
       </div>
     </div>
   </template>
