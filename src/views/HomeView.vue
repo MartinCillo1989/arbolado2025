@@ -78,84 +78,148 @@ function initMap() {
   new MarkerClusterer({ map: map.value, markers: markers });
 }
 
+const carousel = ref(null);
+const carouselItems = ref(null);
+
+//movimiento de logos
+const moveCarousel = () => {
+  if (carouselItems.value) {
+    const firstItem = carouselItems.value.querySelector("img");
+    const itemWidth = firstItem.offsetWidth + 16; 
+    const maxScroll = carouselItems.value.scrollWidth - carouselItems.value.offsetWidth;
+
+    const currentTranslate = parseFloat(getComputedStyle(carouselItems.value).transform.split(',')[4]) || 0;
+    if (Math.abs(currentTranslate) < maxScroll) {
+      carouselItems.value.style.transform = `translateX(${currentTranslate - itemWidth}px)`; 
+    } else {
+      carouselItems.value.style.transform = `translateX(0px)`;
+    }
+  }
+};
+
+onMounted(() => {
+  setInterval(moveCarousel, 3000);
+});
 
 </script>
 
 <template>
 
   <!-- frase inicial y boton de Sign Up -->
-  <div id="frase" class="flex flex-col md:flex-row justify-between items-center md:px-32 pt-10 pb-6">
-    <p class="text-2xl md:text-4xl font-bold text-center md:text-left">Municipios <br>  
-      <span class="text-gray-500 font-bold">Somos {{ locations.length }} municipios activos contra el cambio climático</span>
+  <div id="frase" class="flex flex-col md:flex-row justify-between items-center md:px-44 pt-10 pb-6">
+    <p class="text-[#042825] text-2xl md:text-4xl font-bold text-center md:text-left">Municipios <br>  
+      <span class="text-[#919192] font-bold">Somos {{ locations.length }} municipios activos contra el cambio climático</span>
     </p>
-    <button 
-      class="mt-4 md:mt-0 text-white rounded-full px-6 py-2 bg-[#022926] hover:bg-[#022926cb]">
-      <RouterLink to="login">
-        Sign Up
-      </RouterLink>
-    </button>
   </div>
 
   <!-- Mapa de Argentina -->
-  <div id="datos-y-mapa" class="flex flex-col md:px-28 md:flex-row justify-between items-center md:space-x-6 pt-14">
-    <div id="map" class="relative w-full md:w-3/5 h-96 md:h-[500px] rounded-2xl overflow-hidden">
-      <div id="map-info" class="absolute left-2 h-full md:w-1/2 rounded-2xl bg-[#365351] p-6">
-        <h5 class="text-white text-2xl md:text-4xl font-bold opacity-70">Municipios</h5>
-        <h3 class="text-white text-3xl md:text-5xl font-bold my-4">Somos {{ locations.length }} municipios activos contra el cambio climático</h3>
+  <div id="datos-y-mapa" class="flex flex-col md:px-28 md:flex-row md:justify-evenly items-center md:space-x-6 pt-14">
+    <div id="map" class="relative w-4/5 md:w-2/3 h-[700px] md:h-[600px] rounded-2xl overflow-hidden flex flex-col md:flex-row">
+      <div id="map-info" class="md:flex-1 md:order-1 md:left-2 h-1/3 md:h-full md:w-1/2 rounded-2xl bg-[#365351] p-6 flex justify-start text-left">
+        <div class="md:pt-24 md:pl-6">
+          <h5 class="text-[#99a7a6] text-2xl md:text-4xl font-bold opacity-70">Municipios</h5>
+          <h3 class="text-white text-3xl md:text-5xl font-bold my-4">Somos {{ locations.length }} municipios activos contra el cambio climático</h3>
+        </div>
       </div>
-      <div ref="mapElement" class="absolute md:right-4 w-full md:w-1/2 h-full rounded-2xl"></div>
+
+      <div ref="mapElement" class="md:flex-1 md:order-2 md:right-4 bottom-4 md:bottom-0 md:w-1/2 h-full rounded-2xl"></div>
     </div>
     
-    <div id="datos" class="flex flex-col w-full md:w-3/12 md:h-[500px] space-y-6 mt-10 md:mt-0">
-      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4">
-        <p class="font-bold text-3xl md:text-4xl text-white">{{ locations.length }} Municipios</p>
-        <p class="text-white text-base md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <div id="datos" class="flex flex-col w-full md:w-1/5 md:h-[600px] space-y-16 mt-10 md:mt-0">
+      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center justify-between">
+        <div class="flex flex-col">
+          <p class="font-bold text-3xl md:text-5xl text-[#042825]">500 K</p>
+          <p class="text-[#042825] font-medium text-base md:text-3xl">Arboles relevados</p>
+        </div>
+        <img class="w-16 ml-auto" src="../components/icons/tree-decidious-svgrepo-com.svg" alt="Árbol">
       </div>
-      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4">
-        <p class="font-bold text-3xl md:text-4xl text-white">500 T</p>
-        <p class="text-white text-base md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center justify-between">
+        <div class="flex flex-col">
+          <p class="font-bold text-3xl md:text-5xl text-[#042825]">290 T</p>
+          <p class="text-[#042825] font-medium text-base md:text-3xl">Absorción de CO2 Aprox</p>
+        </div>
+        <img class="w-16 ml-auto" src="../components/icons/co2-gas-svgrepo-com.svg" alt="CO2">
       </div>
-      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4">
-        <p class="font-bold text-3xl md:text-4xl text-white">500 T</p>
-        <p class="text-white text-base md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center justify-between">
+        <div class="flex flex-col">
+          <p class="font-bold text-3xl md:text-5xl text-[#042825]">500</p>
+          <p class="text-[#042825] font-medium text-base md:text-3xl">Especies de árboles</p>
+        </div>
+        <img class="w-16 ml-auto" src="../components/icons/trees-tree-svgrepo-com.svg" alt="Especies de árboles">
       </div>
     </div>
   </div>
 
   <!-- Logos de socios -->
-    <div id="socios" class="pt-14 pb-36 flex flex-col md:flex-row justify-between items-center md:px-32">
-    <h2 class="text-2xl md:w-2/5 md:text-3xl font-bold text-center p-5   mb-4">Socios comprometidos con el cambio climático</h2>
-    <div class="flex items-center justify-center space-x-4 overflow-hidden">
-      <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (1).jpg" alt="socios">
-      <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (2).jpg" alt="socios">
-      <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (3).jpg" alt="socios">
-      <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios">
+  <div id="socios" class="pt-14 pb-36 flex flex-col md:flex-row justify-between items-center md:px-36">
+    <h2 class="text-2xl md:w-2/5 md:text-3xl font-semibold text-center p-5 mb-4">
+      Socios comprometidos con el cambio climático
+    </h2>
+    <div
+      ref="carousel"
+      class="flex items-center justify-start space-x-4 overflow-hidden relative"
+    >
+      <div
+        class="flex transition-all duration-300 ease-in-out"
+        ref="carouselItems"
+      >
+        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (1).jpg" alt="socios" />
+        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (2).jpg" alt="socios" />
+        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (3).jpg" alt="socios" />
+        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
+        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
+        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
+        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
+      </div>
     </div>
   </div>
-
+  
   <!-- Carousel de datos -->
-   <div id="datos-actualizados" class="bg-gradient-to-b from-[#b0c298] to-[#b0c298bd] py-16 md:w-full">
+   <div id="datos-actualizados" class="border-t-2 border-b-2 border-black bg-gradient-to-b from-[#b0c298] to-[#b0c298bd] py-16 md:w-full">
     <div class="flex flex-col pb-10 space-y-2">
-      <h2 class="font-bold text-center text-2xl md:text-3xl">Datos Actualizados</h2>
-      <h6 class="font-bold text-center text-2xl md:text-3xl text-gray-500">Totales por municipios activos</h6>
+      <h2 class="font-bold text-center text-2xl md:text-4xl text-[#042825]">Datos Actualizados</h2>
+      <h6 class="font-bold text-center text-2xl md:text-4xl text-[#6a735f]">Totales por municipios activos</h6>
     </div>
 
     <!-- Primer Carrusel -->
     <Carousel 
       :items="locations" 
       bgColor="#26473c" 
+      txColor="#92a29d" 
     />
 
     <!-- Segundo Carrusel -->
     <Carousel 
       :items="locations" 
-      bgColor="#aea546" 
+      bgColor="#aea646"
+      txColor="#6b6951" 
     />
   </div>
 
   <div class="md:h-40">
-    <p class="text-center p-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis alias sint odit ipsum ullam fugit error, necessitatibus, quas sequi veritatis voluptatum doloremque atque quasi. Omnis reiciendis neque ducimus suscipit quam!</p>
+  <p class="text-center p-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis alias sint odit ipsum ullam fugit error, necessitatibus, quas sequi veritatis voluptatum doloremque atque quasi. Omnis reiciendis neque ducimus suscipit quam!</p>
+  <img src="" alt="">
+</div>
+
+<div id="fondo" class="w-full py-36 flex flex-col justify-evenly bg-[#042825]">
+  <div class="mb-20">
+    <p class="text-center text-white px-20">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad cumque aliquam excepturi temporibus, a repellendus quae labore. Hic, doloremque provident rem, quod accusamus accusantium eligendi ratione ullam ex repellat officiis?
+    </p>
   </div>
+  <div class="flex flex-wrap justify-center items-center space-x-4">
+    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
+  </div>
+</div>
+
+
+
 </template>
 
 <style>
