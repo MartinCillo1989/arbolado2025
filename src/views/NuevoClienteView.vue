@@ -50,7 +50,7 @@
                     type="text"
                     label="Nombre"
                     name="nombre"
-                    placeholder="Nombre de cliente"
+                    placeholder="Nombre del censista"
                     help="Coloca el nombre del cliente que deseas registrar"
                     validation="required"
                     :validation-messages="{ required: 'El nombre del censista es obligatorio'}"
@@ -59,7 +59,7 @@
                     type="text"
                     label="Apellido"
                     name="apellido"
-                    placeholder="Apellido de cliente"
+                    placeholder="Apellido del censista"
                     validation="required"
                     :validation-messages="{ required: 'El apellido del censista es obligatorio'}"
                 />
@@ -81,15 +81,15 @@
                 />
                 <FormKit 
                     type="text"
-                    label="Empresa"
-                    name="empresa"
-                    placeholder="Empresa de cliente"
+                    label="Municipio"
+                    name="municipio"
+                    placeholder="Municipio del censista"
                 />
                 <FormKit 
                     type="text"
                     label="Puesto"
                     name="puesto"
-                    placeholder="Puesto de cliente"
+                    placeholder="Puesto del censista"
                 />
                 
 

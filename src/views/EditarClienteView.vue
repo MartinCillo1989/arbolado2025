@@ -94,16 +94,16 @@
                 />
                 <FormKit 
                     type="text"
-                    label="Empresa"
-                    name="empresa"
+                    label="Municipio"
+                    name="municipio"
                     placeholder="Empresa de cliente"
-                    v-model="formData.empresa"
+                    v-model="formData.municipio"
                 />
                 <FormKit 
                     type="text"
                     label="Puesto"
                     name="puesto"
-                    placeholder="Puesto de cliente"v-model="formData.puesto"
+                    placeholder="Puesto del censista"v-model="formData.puesto"
                 />
                 
 

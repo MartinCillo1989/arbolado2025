@@ -1,64 +1,72 @@
 {
   "clientes": [
     {
-      "id": "3587",
+      "id": "f09c",
       "nombre": "Martin",
-      "apellido": "Pérez",
-      "email": "marten@gmail.com",
-      "telefono": "341-355-5454",
-      "empresa": "Azure",
-      "puesto": "Jefe",
-      "estado": 1
-    },
-    {
-      "id": "c5e3",
-      "nombre": "Juan",
-      "apellido": "José",
-      "email": "juan@gmail.com",
+      "apellido": "Cillo",
+      "email": "cillomartin.89@gmail.com",
       "telefono": "123-123-2314",
-      "empresa": "Google",
-      "puesto": "Jr",
-      "estado": 1
+      "municipio": "Pérez",
+      "puesto": "Admin",
+      "estado": false
     },
     {
-      "id": "b74a",
-      "nombre": "Fabricio",
-      "apellido": "Corsalini",
-      "email": "fabri@gmail.com",
-      "telefono": "325-526-5132",
-      "empresa": "Mdsadsa",
-      "puesto": "sdasdsa",
-      "estado": 1
+      "id": "0ad9",
+      "nombre": "marten",
+      "apellido": "Pérez",
+      "email": "cillomartin.89@gmail.com",
+      "telefono": "123-123-2314",
+      "municipio": "Pérez",
+      "puesto": "ssss",
+      "estado": false
+    },
+    {
+      "id": "28fe",
+      "nombre": "juan",
+      "apellido": "garcia",
+      "email": "lisi@gmail.com",
+      "telefono": "123-123-2314",
+      "municipio": "Soldisney",
+      "puesto": "nn",
+      "estado": false
     }
   ],
   "relevamientos": [
     {
-      "id": "7aff",
-      "tipoArbol": "Eucalipto",
-      "ubicacion": "Los pinos 1885",
-      "nombre": "Juan",
-      "apellido": "Sosa"
+      "id": "126c",
+      "especie": "Roble",
+      "altura": "15 metros",
+      "diametro": "30 cm",
+      "estadoSanitario": "Bueno",
+      "ubicacion": "Parque Central",
+      "observaciones": "Árbol saludable con buena cobertura foliar"
     },
     {
-      "id": "2aff",
-      "tipoArbol": "Álamo",
-      "ubicacion": "1° de mayo 1958",
-      "nombre": "José",
-      "apellido": "Hernandez"
+      "id": "126d",
+      "especie": "Pino",
+      "altura": "20 metros",
+      "diametro": "40 cm",
+      "estadoSanitario": "Regular",
+      "ubicacion": "Bosque Municipal",
+      "observaciones": "Algunos daños por plagas en la corteza"
     },
     {
-      "id": "7aff",
-      "tipoArbol": "Eucalipto",
-      "ubicacion": "Los pinos 1885",
-      "nombre": "Juan",
-      "apellido": "Sosa"
+      "id": "126e",
+      "especie": "Abeto",
+      "altura": "12 metros",
+      "diametro": "35 cm",
+      "estadoSanitario": "Excelente",
+      "ubicacion": "Jardín Botánico",
+      "observaciones": "Árbol robusto, sin signos de enfermedades"
     },
     {
-      "id": "2aff",
-      "tipoArbol": "Álamo",
-      "ubicacion": "1° de mayo 1958",
-      "nombre": "José",
-      "apellido": "Hernandez"
+      "id": "126f",
+      "especie": "Sauce",
+      "altura": "10 metros",
+      "diametro": "25 cm",
+      "estadoSanitario": "Bueno",
+      "ubicacion": "Ribera del río",
+      "observaciones": "Crecimiento saludable, adecuado para su entorno"
     }
   ]
 }

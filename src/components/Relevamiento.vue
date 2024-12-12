@@ -18,17 +18,26 @@
 <template>
     <tr>
         <td class="whitespace-nowrap py-4 px-3 text-sm text-center">
-    <p class="text-gray-500">{{ relevamiento.tipoArbol }}</p>
-</td>
-<td class="whitespace-nowrap py-4 px-3 text-sm text-center">
-    <p class="text-gray-500">{{ relevamiento.ubicacion }}</p>
-</td>
-<td class="whitespace-nowrap py-4 px-3 text-sm text-center">
-    <p class="text-gray-500">{{ relevamiento.nombre }}</p>
-</td>
-<td class="whitespace-nowrap py-4 px-3 text-sm text-center">
-    <p class="text-gray-500">{{ relevamiento.apellido }}</p>
-</td>
+        <p class="text-gray-500">{{ relevamiento.id }}</p>
+        </td>
+        <td class="whitespace-nowrap py-4 px-3 text-sm text-center">
+        <p class="text-gray-500">{{ relevamiento.especie }}</p>
+        </td>
+        <td class="whitespace-nowrap py-4 px-3 text-sm text-center">
+            <p class="text-gray-500">{{ relevamiento.altura }}</p>
+        </td>
+        <td class="whitespace-nowrap py-4 px-3 text-sm text-center">
+            <p class="text-gray-500">{{ relevamiento.diametro }}</p>
+        </td>
+        <td class="whitespace-nowrap py-4 px-3 text-sm text-center">
+            <p class="text-gray-500">{{ relevamiento.estadoSanitario }}</p>
+        </td>
+        <td class="whitespace-nowrap py-4 px-3 text-sm text-center">
+            <p class="text-gray-500">{{ relevamiento.ubicacion }}</p>
+        </td>
+        <td class="whitespace-nowrap py-4 px-3 text-sm text-center">
+            <p class="text-gray-500">{{ relevamiento.observaciones }}</p>
+        </td>
 
     </tr>
 </template>
