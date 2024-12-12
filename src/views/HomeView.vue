@@ -106,79 +106,81 @@ onMounted(() => {
 <template>
 
   <!-- frase inicial y boton de Sign Up -->
-  <div id="frase" class="flex flex-col md:flex-row justify-between items-center md:px-44 pt-10 pb-6">
-    <p class="text-[#042825] text-2xl md:text-4xl font-bold text-center md:text-left">Municipios <br>  
+  <div id="frase" class="flex flex-col xl:flex-row justify-between items-center xl:px-44 pt-10 pb-6 md:flex-row md:px-32">
+    <p class="text-[#042825] text-2xl md:text-3xl xl:text-4xl font-bold text-center md:text-left xl:text-left">Municipios <br>  
       <span class="text-[#919192] font-bold">Somos {{ locations.length }} municipios activos contra el cambio climático</span>
     </p>
   </div>
 
   <!-- Mapa de Argentina -->
-  <div id="datos-y-mapa" class="flex flex-col md:px-28 md:flex-row md:justify-evenly items-center md:space-x-6 pt-14">
-    <div id="map" class="relative w-4/5 md:w-2/3 h-[700px] md:h-[600px] rounded-2xl overflow-hidden flex flex-col md:flex-row">
-      <div id="map-info" class="md:flex-1 md:order-1 md:left-2 h-1/3 md:h-full md:w-1/2 rounded-2xl bg-[#365351] p-6 flex justify-start text-left">
-        <div class="md:pt-24 md:pl-6">
-          <h5 class="text-[#99a7a6] text-2xl md:text-4xl font-bold opacity-70">Municipios</h5>
-          <h3 class="text-white text-3xl md:text-5xl font-bold my-4">Somos {{ locations.length }} municipios activos contra el cambio climático</h3>
+  <div id="datos-y-mapa" class="flex flex-col xl:px-28 xl:flex-row xl:justify-evenly items-center xl:space-x-6 pt-14">
+    <div id="map" class=" w-4/5 md:w-5/6 xl:w-2/3 h-[700px] xl:h-[600px] md:h-[600px] rounded-2xl overflow-hidden flex flex-col md:flex-row xl:flex-row">
+      <div id="map-info" class="xl:flex-1 xl:order-1 xl:left-4 h-1/3 xl:h-full xl:w-1/2 md:h-full md:ml-4 md:w-1/2 rounded-2xl bg-[#365351] p-6 flex justify-start text-left">
+        <div class="xl:pt-24 xl:pl-6 xl:pr-3 md:pt-24 md:pl-6">
+          <h5 class="text-[#99a7a6] text-xl md:text-3xl xl:text-4xl font-bold opacity-70">Municipios</h5>
+          <h3 class="text-white text-xl md:text-4xl xl:text-5xl font-bold my-4">Somos {{ locations.length }} municipios activos contra el cambio climático</h3>
         </div>
       </div>
 
-      <div ref="mapElement" class="md:flex-1 md:order-2 md:right-4 bottom-4 md:bottom-0 md:w-1/2 h-full rounded-2xl"></div>
+      <div ref="mapElement" class="z-10 xl:w-1/2 xl:bottom-0 xl:flex-1 xl:order-2 xl:right-6 md:flex-1 md:order-2 md:bottom-0 md:right-4 bottom-4 h-full rounded-2xl"></div>
     </div>
     
-    <div id="datos" class="flex flex-col w-full md:w-1/5 md:h-[600px] space-y-16 mt-10 md:mt-0">
-      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center justify-between">
+    <div id="datos" class="flex flex-col mt-10 w-4/5 space-y-10 md:flex-row md:h-1/3 md:space-y-0 md:space-x-6 md:mt-10 md:justify-evenly xl:w-1/5 xl:h-[600px] xl:flex-col xl:space-y-16 xl:space-x-0 xl:mt-0 ">
+      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center">
         <div class="flex flex-col">
-          <p class="font-bold text-3xl md:text-5xl text-[#042825]">500 K</p>
-          <p class="text-[#042825] font-medium text-base md:text-3xl">Arboles relevados</p>
+          <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">500 K</p>
+          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Árboles relevados</p>
         </div>
-        <img class="w-16 ml-auto" src="../components/icons/tree-decidious-svgrepo-com.svg" alt="Árbol">
+        <img class="w-12 sm:w-14 xl:w-16 ml-auto" src="../components/icons/tree-decidious-svgrepo-com.svg" alt="Árbol">
       </div>
-      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center justify-between">
+
+      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center">
         <div class="flex flex-col">
-          <p class="font-bold text-3xl md:text-5xl text-[#042825]">290 T</p>
-          <p class="text-[#042825] font-medium text-base md:text-3xl">Absorción de CO2 Aprox</p>
+          <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">290 T</p>
+          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Absorción de CO2 Aprox</p>
         </div>
-        <img class="w-16 ml-auto" src="../components/icons/co2-gas-svgrepo-com.svg" alt="CO2">
+        <img class="w-12 sm:w-14 xl:w-16 ml-auto" src="../components/icons/co2-gas-svgrepo-com.svg" alt="CO2">
       </div>
-      <div class="w-full h-32 md:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center justify-between">
+
+      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center">
         <div class="flex flex-col">
-          <p class="font-bold text-3xl md:text-5xl text-[#042825]">500</p>
-          <p class="text-[#042825] font-medium text-base md:text-3xl">Especies de árboles</p>
+          <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">500</p>
+          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Especies de árboles</p>
         </div>
-        <img class="w-16 ml-auto" src="../components/icons/trees-tree-svgrepo-com.svg" alt="Especies de árboles">
+        <img class="w-12 sm:w-14 xl:w-16 ml-auto" src="../components/icons/trees-tree-svgrepo-com.svg" alt="Especies de árboles">
       </div>
     </div>
   </div>
 
   <!-- Logos de socios -->
-  <div id="socios" class="pt-14 pb-36 flex flex-col md:flex-row justify-between items-center md:px-36">
-    <h2 class="text-2xl md:w-2/5 md:text-3xl font-semibold text-center p-5 mb-4">
-      Socios comprometidos con el cambio climático
+  <div id="socios" class="pt-14 pb-36 flex flex-col xl:flex-row justify-between items-center xl:px-32">
+    <h2 class="text-2xl xl:text-3xl font-semibold text-center p-5 mb-4">
+      socios comprometidos con el cambio climático
     </h2>
     <div
       ref="carousel"
-      class="flex items-center justify-start space-x-4 overflow-hidden relative"
+      class="flex items-center justify-start xl:w-4/5 space-x-4 overflow-hidden relative"
     >
       <div
         class="flex transition-all duration-300 ease-in-out"
         ref="carouselItems"
       >
-        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (1).jpg" alt="socios" />
-        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (2).jpg" alt="socios" />
-        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (3).jpg" alt="socios" />
-        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
-        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
-        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
-        <img class="h-20 md:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
+        <img class="h-20 xl:h-28 object-contain" src="../assets/img/0-crop (1).jpg" alt="socios" />
+        <img class="h-20 xl:h-28 object-contain" src="../assets/img/0-crop (2).jpg" alt="socios" />
+        <img class="h-20 xl:h-28 object-contain" src="../assets/img/0-crop (3).jpg" alt="socios" />
+        <img class="h-20 xl:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
+        <img class="h-20 xl:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
+        <img class="h-20 xl:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
+        <img class="h-20 xl:h-28 object-contain" src="../assets/img/0-crop (4).jpg" alt="socios" />
       </div>
     </div>
   </div>
   
   <!-- Carousel de datos -->
-   <div id="datos-actualizados" class="border-t-2 border-b-2 border-black bg-gradient-to-b from-[#b0c298] to-[#b0c298bd] py-16 md:w-full">
+   <div id="datos-actualizados" class="border-t-2 border-b-2 border-black bg-gradient-to-b from-[#b0c298] to-[#b0c298bd] py-16 xl:w-full">
     <div class="flex flex-col pb-10 space-y-2">
-      <h2 class="font-bold text-center text-2xl md:text-4xl text-[#042825]">Datos Actualizados</h2>
-      <h6 class="font-bold text-center text-2xl md:text-4xl text-[#6a735f]">Totales por municipios activos</h6>
+      <h2 class="font-bold text-center text-2xl xl:text-4xl text-[#042825]">Datos Actualizados</h2>
+      <h6 class="font-bold text-center text-2xl xl:text-4xl text-[#6a735f]">Totales por municipios activos</h6>
     </div>
 
     <!-- Primer Carrusel -->
@@ -196,27 +198,35 @@ onMounted(() => {
     />
   </div>
 
-  <div class="md:h-40">
-  <p class="text-center p-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis alias sint odit ipsum ullam fugit error, necessitatibus, quas sequi veritatis voluptatum doloremque atque quasi. Omnis reiciendis neque ducimus suscipit quam!</p>
-  <img src="" alt="">
-</div>
+  <div class="h-auto md:h-3/4 flex flex-col md:flex-row p-6 md:p-10 justify-evenly items-center">
+    <p class="text-base sm:text-lg md:text-xl xl:text-3xl md:w-3/5 xl:w-1/2 md:pr-8">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis alias sint odit ipsum ullam fugit error, necessitatibus, quas sequi veritatis voluptatum doloremque atque quasi. Omnis reiciendis neque ducimus suscipit quam!
+    </p>
+    <img class="w-full md:w-2/5 xl:w-1/4 h-auto md:h-full object-cover" src="/src/assets/img/smartphone.jpeg" alt="Smartphone">
+  </div>
 
-<div id="fondo" class="w-full py-36 flex flex-col justify-evenly bg-[#042825]">
+
+  <div id="fondo" class="w-full py-36 flex flex-col justify-evenly bg-[#042825]">
+  <!-- Sección de texto -->
   <div class="mb-20">
-    <p class="text-center text-white px-20">
+    <p class="text-center text-3xl text-white px-8 sm:px-20">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad cumque aliquam excepturi temporibus, a repellendus quae labore. Hic, doloremque provident rem, quod accusamus accusantium eligendi ratione ullam ex repellat officiis?
     </p>
   </div>
-  <div class="flex flex-wrap justify-center items-center space-x-4">
-    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
-    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
-    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
-    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
-    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
-    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
-    <img class="w-28 sm:w-1/4 md:w-28 lg:w-28" src="../components/icons/AppArbolado.svg" alt="">
+
+  <!-- Sección de imágenes -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:flex xl:flex-wrap justify-items-center items-center gap-8">
+    <img class="w-20 sm:w-24 md:w-28 lg:w-28 xl:w-28 xl:mt-4 mx-auto" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-20 sm:w-24 md:w-28 lg:w-28 xl:w-28 xl:-mt-4 mx-auto" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-20 sm:w-24 md:w-28 lg:w-28 xl:w-28 xl:mt-4 mx-auto" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-20 sm:w-24 md:w-28 lg:w-28 xl:w-28 xl:-mt-4 mx-auto" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-20 sm:w-24 md:w-28 lg:w-28 xl:w-28 xl:mt-4 mx-auto" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-20 sm:w-24 md:w-28 lg:w-28 xl:w-28 xl:-mt-4 mx-auto" src="../components/icons/AppArbolado.svg" alt="">
+    <img class="w-20 sm:w-24 md:w-28 lg:w-28 xl:w-28 xl:mt-4 mx-auto" src="../components/icons/AppArbolado.svg" alt="">
   </div>
 </div>
+
+
 
 
 
