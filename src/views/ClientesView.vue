@@ -64,13 +64,13 @@
               <table class="min-w-full divide-y divide-gray-300">
                   <thead>
                   <tr>
-                      <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Nombre</th>
-                      <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Empresa</th>
-                      <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Estado</th>
-                      <th scope="col" class="p-2 text-left text-sm font-extrabold text-gray-600">Acciones</th>
+                      <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Nombre</th>
+                      <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Municipio</th>
+                      <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Estado</th>
+                      <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Acciones</th>
                   </tr>
                   </thead>
-                  <tbody class="divide-y divide-gray-200 bg-white">
+                  <tbody class="divide-y divide-gray-200 bg-lime-100">
                     <Cliente
                         v-for="cliente in clientes"
                         :key="cliente.id"

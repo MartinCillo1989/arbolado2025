@@ -42,13 +42,16 @@
             <table class="min-w-full divide-y divide-gray-300">
                 <thead>
                 <tr>
-                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Tipo de Árbol</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">ID</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Especiel</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Altura</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Diámetro</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Estado sanitario</th>
                     <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Ubicación</th>
-                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Nombre del Censista</th>
-                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Apellido del Censista</th>
+                    <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Observaciones</th>
                 </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-200 bg-white">
+                <tbody class="divide-y divide-gray-200 bg-lime-100">
                   <Relevamiento
                       v-for="relevamiento in relevamientos"
                       :key="relevamiento.id"

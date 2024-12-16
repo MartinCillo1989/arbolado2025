@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <header class="bg-green-900 flex justify-between items-center px-5 py-5">
+  <header class="bg-[rgb(75,101,98)] flex justify-between items-center px-5 py-5">
     <!-- Imagen a la izquierda -->
     <div class="flex-shrink-0 mr-8">
       <img src="./components/icons/Ramcc.svg" alt="Imagen Izquierda" class="h-12">
@@ -13,7 +13,7 @@
     
     <!-- Imagen centrada -->
     <div>
-      <img src="./components/icons/AppArbolado.svg" alt="Imagen Centro" class="h-12 mx-auto">
+      <img src="./components/icons/AppArbolado2.png" alt="Imagen Centro" class="h-12 mx-auto">
     </div>
 
     <!-- Imagen a la derecha -->
