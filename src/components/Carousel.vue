@@ -44,7 +44,7 @@
         v-for="(item, index) in items" 
         :key="index" 
         :style="{ backgroundColor: bgColor, userSelect: 'none' }"
-        class="md:w-auto md:max-w-[320px] h-36 rounded-3xl shadow-lg flex flex-col items-center justify-center px-24 snap-start"
+        class="md:w-auto md:max-w-[320px] h-36 rounded-3xl shadow-inner-top flex flex-col items-center justify-center px-24 snap-start"
       >
         <h5 class="text-center text-white text-4xl font-bold">360</h5>
         <h4 class="text-center text-3xl font-semibold" :style="{ color: txColor}">municipio</h4>

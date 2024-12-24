@@ -1,13 +1,12 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { MarkerClusterer } from "@googlemaps/markerclusterer";
+import GoogleMap from '@/components/GoogleMap.vue';
 import Carousel from '@/components/Carousel.vue';
 
   //Centrar el mapa en Argentina
-const mapElement = ref(null);
-const map = ref(null);
-const center = ref({ lat: -38.416097, lng: -63.616672 });
-const zoom = ref(4);
+
+const mapCenter = { lat: -38.416097, lng: -63.616672 }
+const mapZoom = 4
 
 
   //Municipios provisionales
@@ -41,47 +40,11 @@ const locations = ref([
   { name: "Maipú", lat: -32.978931, lng: -68.763473 }
 ]);
 
-  //Cargar el mapa
-onMounted(() => {
-  loadGoogleMaps();
-});
-
-function loadGoogleMaps() {
-  if (window.google) {
-    initMap();
-  } else {
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAwWgC0Dp1_RRFobXOf1syZ-dOAypz4tks&loading=async&callback=initMap&libraries=visualization,places`;
-    script.async = true;
-    document.head.appendChild(script);
-    window.initMap = initMap;
-  }
-}
-
-  //Iniciar mapa
-function initMap() {
-  map.value = new google.maps.Map(mapElement.value, {
-    center: center.value,
-    zoom: zoom.value,
-    disableDefaultUI: true,
-  });
-
-  // Crear los marcadores
-  const markers = locations.value.map((location) => {
-    return new google.maps.Marker({
-      position: { lat: location.lat, lng: location.lng },
-      title: location.name,
-    });
-  });
-
-  // Crear el clúster de marcadores
-  new MarkerClusterer({ map: map.value, markers: markers });
-}
 
 const carousel = ref(null);
 const carouselItems = ref(null);
 
-//movimiento de logos
+//Movimiento de logos
 const moveCarousel = () => {
   if (carouselItems.value) {
     const firstItem = carouselItems.value.querySelector("img");
@@ -114,19 +77,22 @@ onMounted(() => {
 
   <!-- Mapa de Argentina -->
   <div id="datos-y-mapa" class="flex flex-col xl:px-28 xl:flex-row xl:justify-evenly items-center xl:space-x-6 pt-14">
-    <div id="map" class=" w-4/5 md:w-5/6 xl:w-2/3 h-[700px] xl:h-[600px] md:h-[600px] rounded-2xl overflow-hidden flex flex-col md:flex-row xl:flex-row">
-      <div id="map-info" class="xl:flex-1 xl:order-1 xl:left-4 h-1/3 xl:h-full xl:w-1/2 md:h-full md:ml-4 md:w-1/2 rounded-2xl bg-[#365351] p-6 flex justify-start text-left">
+    <div id="map" class="w-4/5 md:w-5/6 xl:w-2/3 h-[700px] xl:h-[600px] md:h-[600px] rounded-2xl overflow-hidden flex flex-col md:flex-row xl:flex-row">
+      <div id="map-info" class="xl:flex-1 xl:order-1 xl:left-4 h-1/3 xl:h-full md:h-full md:w-1/2 rounded-2xl bg-[#365351] p-6 flex justify-start text-left">
         <div class="xl:pt-24 xl:pl-6 xl:pr-3 md:pt-24 md:pl-6">
           <h5 class="text-[#99a7a6] text-xl md:text-3xl xl:text-4xl font-bold opacity-70">Municipios</h5>
           <h3 class="text-white text-xl md:text-4xl xl:text-5xl font-bold my-4">Somos {{ locations.length }} municipios activos contra el cambio climático</h3>
         </div>
       </div>
 
-      <div ref="mapElement" class="z-10 xl:w-1/2 xl:bottom-0 xl:flex-1 xl:order-2 xl:right-6 md:flex-1 md:order-2 md:bottom-0 md:right-4 bottom-4 h-full rounded-2xl"></div>
+      <div class=" md:w-5/6 xl:w-2/3 xl:flex-1 md:flex-1 md:order-2 h-full ">
+        <GoogleMap :center="mapCenter" :zoom="mapZoom" :locations="locations" class="bottom-6 md:bottom-0 xl:bottom-0 md:right-6 rounded-2xl"/>
+      </div>
+      
     </div>
     
     <div id="datos" class="flex flex-col mt-10 w-4/5 space-y-10 md:flex-row md:h-1/3 md:space-y-0 md:space-x-6 md:mt-10 md:justify-evenly xl:w-1/5 xl:h-[600px] xl:flex-col xl:space-y-16 xl:space-x-0 xl:mt-0 ">
-      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center">
+      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center shadow-inner-top">
         <div class="flex flex-col">
           <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">500 K</p>
           <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Árboles relevados</p>
@@ -134,7 +100,7 @@ onMounted(() => {
         <img class="w-12 sm:w-14 xl:w-16 ml-auto" src="../components/icons/tree-decidious-svgrepo-com.svg" alt="Árbol">
       </div>
 
-      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center">
+      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center shadow-inner-top">
         <div class="flex flex-col">
           <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">290 T</p>
           <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Absorción de CO2 Aprox</p>
@@ -142,7 +108,7 @@ onMounted(() => {
         <img class="w-12 sm:w-14 xl:w-16 ml-auto" src="../components/icons/co2-gas-svgrepo-com.svg" alt="CO2">
       </div>
 
-      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center">
+      <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center shadow-inner-top">
         <div class="flex flex-col">
           <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">500</p>
           <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Especies de árboles</p>
@@ -202,7 +168,7 @@ onMounted(() => {
     <p class="text-base sm:text-lg md:text-xl xl:text-3xl md:w-3/5 xl:w-1/2 md:pr-8">
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis alias sint odit ipsum ullam fugit error, necessitatibus, quas sequi veritatis voluptatum doloremque atque quasi. Omnis reiciendis neque ducimus suscipit quam!
     </p>
-    <img class="w-full md:w-2/5 xl:w-1/4 h-auto md:h-full object-cover" src="/src/assets/img/smartphone.jpeg" alt="Smartphone">
+    <img class="w-full md:w-2/5 xl:w-1/4 h-auto md:h-full object-cover rounded-2xl" src="/src/assets/img/smartphone.jpeg" alt="Smartphone">
   </div>
 
 

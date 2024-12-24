@@ -5,7 +5,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/inicio',
       name: 'inicio',
       component: () => import('../views/ClientesView.vue'),
       props: {titulo: 'Listado de Censistas'}
@@ -31,7 +31,7 @@ const router = createRouter({
     {
       path: '/municipio',
       name: 'municipio',
-      component: () => import('../views/Municipio.vue'),
+      component: () => import('../views/MunicipioView.vue'),
       props: {titulo: 'Municipio'}
     },
     {
@@ -41,7 +41,7 @@ const router = createRouter({
       props: {titulo: 'Intervenciones'}
     },
     {
-      path: '/home',
+      path: '/',
       name: 'home',
       component: () => import('@/views/HomeView.vue')
     },
@@ -50,7 +50,8 @@ const router = createRouter({
       name: 'login',
       component: () => import('../views/LoginView.vue'),
       props: {titulo: 'Login'}
-    }
+    },
+    
     
   ],
 })
