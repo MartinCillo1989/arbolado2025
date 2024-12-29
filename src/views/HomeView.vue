@@ -10,34 +10,34 @@ const mapZoom = 4
 
 
   //Municipios provisionales
-const locations = ref([
-  { name: "Rosario", lat: -32.959648123706145, lng: -60.69087085480481 },
-  { name: "Baigorria", lat: -32.85850818963751, lng: -60.703092403554244 },
-  { name: "Castelar", lat: -31.66846673336747, lng: -62.090651217414205 },
-  { name: "Funes", lat: -32.916912, lng: -60.812737 },
-  { name: "Villa Gobernador Galvez", lat: -33.031742, lng: -60.640957 },
-  { name: "San Lorenzo", lat: -32.749149, lng: -60.741749 },
-  { name: "Capitán Bermúdez", lat: -32.820082, lng: -60.718218 },
+  const locations = ref([
+  { name: "Rosario", lat: -32.959648123706145, lng: -60.69087085480481, arboles: 56, co2: 4532, especies: 87 },
+  { name: "Baigorria", lat: -32.85850818963751, lng: -60.703092403554244, arboles: 78, co2: 9012, especies: 63 },
+  { name: "Castelar", lat: -31.66846673336747, lng: -62.090651217414205, arboles: 45, co2: 1234, especies: 101 },
+  { name: "Funes", lat: -32.916912, lng: -60.812737, arboles: 32, co2: 8043, especies: 72 },
+  { name: "Villa Gobernador Galvez", lat: -33.031742, lng: -60.640957, arboles: 66, co2: 6721, especies: 98 },
+  { name: "San Lorenzo", lat: -32.749149, lng: -60.741749, arboles: 23, co2: 9340, especies: 125 },
+  { name: "Capitán Bermúdez", lat: -32.820082, lng: -60.718218, arboles: 50, co2: 8475, especies: 61 },
   
-  { name: "Buenos Aires", lat: -34.603722, lng: -58.381592 },
-  { name: "Lanús", lat: -34.702636, lng: -58.394783 },
-  { name: "Avellaneda", lat: -34.66334, lng: -58.366653 },
-  { name: "Quilmes", lat: -34.72904, lng: -58.26374 },
-  { name: "San Justo", lat: -34.678493, lng: -58.561646 },
-  { name: "La Plata", lat: -34.92145, lng: -57.95453 },
+  { name: "Buenos Aires", lat: -34.603722, lng: -58.381592, arboles: 80, co2: 7432, especies: 110 },
+  { name: "Lanús", lat: -34.702636, lng: -58.394783, arboles: 67, co2: 8453, especies: 45 },
+  { name: "Avellaneda", lat: -34.66334, lng: -58.366653, arboles: 24, co2: 5432, especies: 89 },
+  { name: "Quilmes", lat: -34.72904, lng: -58.26374, arboles: 44, co2: 9021, especies: 78 },
+  { name: "San Justo", lat: -34.678493, lng: -58.561646, arboles: 70, co2: 9823, especies: 58 },
+  { name: "La Plata", lat: -34.92145, lng: -57.95453, arboles: 35, co2: 6745, especies: 105 },
   
-  { name: "Cordoba", lat: -31.420083, lng: -64.188776 },
-  { name: "Villa Carlos Paz", lat: -31.415897, lng: -64.50412 },
-  { name: "Alta Gracia", lat: -31.666138, lng: -64.428257 },
-  { name: "Río Cuarto", lat: -33.123867, lng: -64.349196 },
-  { name: "Villa María", lat: -32.407459, lng: -63.240539 },
+  { name: "Cordoba", lat: -31.420083, lng: -64.188776, arboles: 59, co2: 9032, especies: 78 },
+  { name: "Villa Carlos Paz", lat: -31.415897, lng: -64.50412, arboles: 42, co2: 8457, especies: 112 },
+  { name: "Alta Gracia", lat: -31.666138, lng: -64.428257, arboles: 64, co2: 7834, especies: 96 },
+  { name: "Río Cuarto", lat: -33.123867, lng: -64.349196, arboles: 37, co2: 9201, especies: 85 },
+  { name: "Villa María", lat: -32.407459, lng: -63.240539, arboles: 29, co2: 7634, especies: 62 },
   
-  { name: "Mendoza", lat: -32.889459, lng: -68.845838 },
-  { name: "Godoy Cruz", lat: -32.892222, lng: -68.845833 },
-  { name: "Las Heras", lat: -32.880593, lng: -68.836288 },
-  { name: "Guaymallén", lat: -32.907635, lng: -68.827876 },
-  { name: "Luján de Cuyo", lat: -33.054115, lng: -68.871007 },
-  { name: "Maipú", lat: -32.978931, lng: -68.763473 }
+  { name: "Mendoza", lat: -32.889459, lng: -68.845838, arboles: 72, co2: 8902, especies: 135 },
+  { name: "Godoy Cruz", lat: -32.892222, lng: -68.845833, arboles: 55, co2: 8412, especies: 98 },
+  { name: "Las Heras", lat: -32.880593, lng: -68.836288, arboles: 38, co2: 9104, especies: 123 },
+  { name: "Guaymallén", lat: -32.907635, lng: -68.827876, arboles: 81, co2: 6732, especies: 132 },
+  { name: "Luján de Cuyo", lat: -33.054115, lng: -68.871007, arboles: 46, co2: 8035, especies: 77 },
+  { name: "Maipú", lat: -32.978931, lng: -68.763473, arboles: 49, co2: 8450, especies: 92 }
 ]);
 
 
@@ -64,6 +64,13 @@ onMounted(() => {
   setInterval(moveCarousel, 3000);
 });
 
+const alertMessage = ref(null); // Mensaje del alert
+const showAlert = (location) => {
+  alertMessage.value = `Has seleccionado: ${location.name}, lat: ${location.lat}, lng: ${location.lng}`;
+  setTimeout(() => alertMessage.value = null, 5000); // Ocultar el mensaje después de 5 segundos
+};
+
+
 </script>
 
 <template>
@@ -86,7 +93,19 @@ onMounted(() => {
       </div>
 
       <div class=" md:w-5/6 xl:w-2/3 xl:flex-1 md:flex-1 md:order-2 h-full ">
-        <GoogleMap :center="mapCenter" :zoom="mapZoom" :locations="locations" class="bottom-6 md:bottom-0 xl:bottom-0 md:right-6 rounded-2xl"/>
+        <GoogleMap 
+        :center="mapCenter" 
+        :zoom="mapZoom" :locations="locations" 
+        class="bottom-6 md:bottom-0 xl:bottom-0 md:right-6 rounded-2xl"
+        @location-click="showAlert"
+        />
+      </div>
+
+      <!-- Alert dinámico -->
+      <div 
+        v-if="alertMessage" 
+        class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded shadow-lg z-50">
+        {{ alertMessage }}
       </div>
       
     </div>
@@ -206,5 +225,18 @@ onMounted(() => {
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE y Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+.alert {
+  animation: slide-up 0.5s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 </style>

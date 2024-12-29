@@ -160,7 +160,7 @@
     <div class="h-auto py-20 bg-white">
       <h1 class="font-semibold text-center text-5xl pb-16 text-[#042825]">Mapa interactivo</h1>
       <div class="flex justify-center">
-        <div class="w-3/4 h-[800px] border-[#042825] border-8 rounded-3xl">
+        <div class="w-3/4 h-[750px] border-[#042825] border-8 rounded-3xl">
           <GoogleMap :center="mapCenter" :zoom="mapZoom" :locations="locations" class="rounded-2xl" />
         </div>
     </div>
