@@ -11,33 +11,33 @@ const mapZoom = 4
 
   //Municipios provisionales
   const locations = ref([
-  { name: "Rosario", lat: -32.959648123706145, lng: -60.69087085480481, arboles: 56, co2: 4532, especies: 87 },
-  { name: "Baigorria", lat: -32.85850818963751, lng: -60.703092403554244, arboles: 78, co2: 9012, especies: 63 },
-  { name: "Castelar", lat: -31.66846673336747, lng: -62.090651217414205, arboles: 45, co2: 1234, especies: 101 },
-  { name: "Funes", lat: -32.916912, lng: -60.812737, arboles: 32, co2: 8043, especies: 72 },
-  { name: "Villa Gobernador Galvez", lat: -33.031742, lng: -60.640957, arboles: 66, co2: 6721, especies: 98 },
-  { name: "San Lorenzo", lat: -32.749149, lng: -60.741749, arboles: 23, co2: 9340, especies: 125 },
-  { name: "Capitán Bermúdez", lat: -32.820082, lng: -60.718218, arboles: 50, co2: 8475, especies: 61 },
+  { name: "Rosario", lat: -32.959648123706145, lng: -60.69087085480481, arboles: 56, co2: 4532, especies: 87, prov: "Santa Fe" },
+  { name: "Granadero Baigorria", lat: -32.85850818963751, lng: -60.703092403554244, arboles: 78, co2: 9012, especies: 63, prov: "Santa Fe" },
+  { name: "Castelar", lat: -31.66846673336747, lng: -62.090651217414205, arboles: 45, co2: 1234, especies: 101, prov: "Buenos Aires" },
+  { name: "Funes", lat: -32.916912, lng: -60.812737, arboles: 32, co2: 8043, especies: 72, prov: "Santa Fe" },
+  { name: "Villa Gobernador Galvez", lat: -33.031742, lng: -60.640957, arboles: 66, co2: 6721, especies: 98, prov: "Santa Fe" },
+  { name: "San Lorenzo", lat: -32.749149, lng: -60.741749, arboles: 23, co2: 9340, especies: 125, prov: "Santa Fe" },
+  { name: "Capitán Bermúdez", lat: -32.820082, lng: -60.718218, arboles: 50, co2: 8475, especies: 61, prov: "Santa Fe" },
   
-  { name: "Buenos Aires", lat: -34.603722, lng: -58.381592, arboles: 80, co2: 7432, especies: 110 },
-  { name: "Lanús", lat: -34.702636, lng: -58.394783, arboles: 67, co2: 8453, especies: 45 },
-  { name: "Avellaneda", lat: -34.66334, lng: -58.366653, arboles: 24, co2: 5432, especies: 89 },
-  { name: "Quilmes", lat: -34.72904, lng: -58.26374, arboles: 44, co2: 9021, especies: 78 },
-  { name: "San Justo", lat: -34.678493, lng: -58.561646, arboles: 70, co2: 9823, especies: 58 },
-  { name: "La Plata", lat: -34.92145, lng: -57.95453, arboles: 35, co2: 6745, especies: 105 },
+  { name: "Buenos Aires", lat: -34.603722, lng: -58.381592, arboles: 80, co2: 7432, especies: 110, prov: "Buenos Aires" },
+  { name: "Lanús", lat: -34.702636, lng: -58.394783, arboles: 67, co2: 8453, especies: 45, prov: "Buenos Aires" },
+  { name: "Avellaneda", lat: -34.66334, lng: -58.366653, arboles: 24, co2: 5432, especies: 89, prov: "Buenos Aires" },
+  { name: "Quilmes", lat: -34.72904, lng: -58.26374, arboles: 44, co2: 9021, especies: 78, prov: "Buenos Aires" },
+  { name: "San Justo", lat: -34.678493, lng: -58.561646, arboles: 70, co2: 9823, especies: 58, prov: "Buenos Aires" },
+  { name: "La Plata", lat: -34.92145, lng: -57.95453, arboles: 35, co2: 6745, especies: 105, prov: "Buenos Aires" },
   
-  { name: "Cordoba", lat: -31.420083, lng: -64.188776, arboles: 59, co2: 9032, especies: 78 },
-  { name: "Villa Carlos Paz", lat: -31.415897, lng: -64.50412, arboles: 42, co2: 8457, especies: 112 },
-  { name: "Alta Gracia", lat: -31.666138, lng: -64.428257, arboles: 64, co2: 7834, especies: 96 },
-  { name: "Río Cuarto", lat: -33.123867, lng: -64.349196, arboles: 37, co2: 9201, especies: 85 },
-  { name: "Villa María", lat: -32.407459, lng: -63.240539, arboles: 29, co2: 7634, especies: 62 },
+  { name: "Cordoba", lat: -31.420083, lng: -64.188776, arboles: 59, co2: 9032, especies: 78, prov: "Córdoba" },
+  { name: "Villa Carlos Paz", lat: -31.415897, lng: -64.50412, arboles: 42, co2: 8457, especies: 112, prov: "Córdoba" },
+  { name: "Alta Gracia", lat: -31.666138, lng: -64.428257, arboles: 64, co2: 7834, especies: 96, prov: "Córdoba" },
+  { name: "Río Cuarto", lat: -33.123867, lng: -64.349196, arboles: 37, co2: 9201, especies: 85, prov: "Córdoba" },
+  { name: "Villa María", lat: -32.407459, lng: -63.240539, arboles: 29, co2: 7634, especies: 62, prov: "Córdoba" },
   
-  { name: "Mendoza", lat: -32.889459, lng: -68.845838, arboles: 72, co2: 8902, especies: 135 },
-  { name: "Godoy Cruz", lat: -32.892222, lng: -68.845833, arboles: 55, co2: 8412, especies: 98 },
-  { name: "Las Heras", lat: -32.880593, lng: -68.836288, arboles: 38, co2: 9104, especies: 123 },
-  { name: "Guaymallén", lat: -32.907635, lng: -68.827876, arboles: 81, co2: 6732, especies: 132 },
-  { name: "Luján de Cuyo", lat: -33.054115, lng: -68.871007, arboles: 46, co2: 8035, especies: 77 },
-  { name: "Maipú", lat: -32.978931, lng: -68.763473, arboles: 49, co2: 8450, especies: 92 }
+  { name: "Mendoza", lat: -32.889459, lng: -68.845838, arboles: 72, co2: 8902, especies: 135, prov: "Mendoza" },
+  { name: "Godoy Cruz", lat: -32.892222, lng: -68.845833, arboles: 55, co2: 8412, especies: 98, prov: "Mendoza" },
+  { name: "Las Heras", lat: -32.880593, lng: -68.836288, arboles: 38, co2: 9104, especies: 123, prov: "Mendoza" },
+  { name: "Guaymallén", lat: -32.907635, lng: -68.827876, arboles: 81, co2: 6732, especies: 132, prov: "Mendoza" },
+  { name: "Luján de Cuyo", lat: -33.054115, lng: -68.871007, arboles: 46, co2: 8035, especies: 77, prov: "Mendoza" },
+  { name: "Maipú", lat: -32.978931, lng: -68.763473, arboles: 49, co2: 8450, especies: 92, prov: "Mendoza" }
 ]);
 
 
@@ -64,11 +64,6 @@ onMounted(() => {
   setInterval(moveCarousel, 3000);
 });
 
-const alertMessage = ref(null); // Mensaje del alert
-const showAlert = (location) => {
-  alertMessage.value = `Has seleccionado: ${location.name}, lat: ${location.lat}, lng: ${location.lng}`;
-  setTimeout(() => alertMessage.value = null, 5000); // Ocultar el mensaje después de 5 segundos
-};
 
 
 </script>
@@ -85,7 +80,7 @@ const showAlert = (location) => {
   <!-- Mapa de Argentina -->
   <div id="datos-y-mapa" class="flex flex-col xl:px-28 xl:flex-row xl:justify-evenly items-center xl:space-x-6 pt-14">
     <div id="map" class="w-4/5 md:w-5/6 xl:w-2/3 h-[700px] xl:h-[600px] md:h-[600px] rounded-2xl overflow-hidden flex flex-col md:flex-row xl:flex-row">
-      <div id="map-info" class="xl:flex-1 xl:order-1 xl:left-4 h-1/3 xl:h-full md:h-full md:w-1/2 rounded-2xl bg-[#365351] p-6 flex justify-start text-left">
+      <div id="map-info" class="border-black border-2 relative xl:flex-1 xl:order-1 md:left-3 h-1/3 xl:h-full md:h-full md:w-1/2 rounded-2xl bg-[#365351] p-6 flex justify-start text-left">
         <div class="xl:pt-24 xl:pl-6 xl:pr-3 md:pt-24 md:pl-6">
           <h5 class="text-[#99a7a6] text-xl md:text-3xl xl:text-4xl font-bold opacity-70">Municipios</h5>
           <h3 class="text-white text-xl md:text-4xl xl:text-5xl font-bold my-4">Somos {{ locations.length }} municipios activos contra el cambio climático</h3>
@@ -96,41 +91,34 @@ const showAlert = (location) => {
         <GoogleMap 
         :center="mapCenter" 
         :zoom="mapZoom" :locations="locations" 
-        class="bottom-6 md:bottom-0 xl:bottom-0 md:right-6 rounded-2xl"
-        @location-click="showAlert"
+        class="bottom-6 md:bottom-0 xl:bottom-0 md:right-3 rounded-2xl"
         />
-      </div>
-
-      <!-- Alert dinámico -->
-      <div 
-        v-if="alertMessage" 
-        class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-4 rounded shadow-lg z-50">
-        {{ alertMessage }}
       </div>
       
     </div>
-    
+
+    <!-- Datos de municipios  -->
     <div id="datos" class="flex flex-col mt-10 w-4/5 space-y-10 md:flex-row md:h-1/3 md:space-y-0 md:space-x-6 md:mt-10 md:justify-evenly xl:w-1/5 xl:h-[600px] xl:flex-col xl:space-y-16 xl:space-x-0 xl:mt-0 ">
       <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center shadow-inner-top">
         <div class="flex flex-col">
-          <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">500 K</p>
-          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Árboles relevados</p>
+          <p class="font-bold text-2xl sm:text-3xl xl:text-4xl text-[#042825]">500 K</p>
+          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-2xl">Árboles relevados</p>
         </div>
         <img class="w-12 sm:w-14 xl:w-16 ml-auto" src="../components/icons/tree-decidious-svgrepo-com.svg" alt="Árbol">
       </div>
 
       <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center shadow-inner-top">
         <div class="flex flex-col">
-          <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">290 T</p>
-          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Absorción de CO2 Aprox</p>
+          <p class="font-bold text-2xl sm:text-3xl xl:text-4xl text-[#042825]">290 T</p>
+          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-2xl">Absorción de CO2 Aprox</p>
         </div>
         <img class="w-12 sm:w-14 xl:w-16 ml-auto" src="../components/icons/co2-gas-svgrepo-com.svg" alt="CO2">
       </div>
 
       <div class="w-full h-28 sm:h-32 xl:h-40 bg-[#afc199] rounded-2xl p-4 flex items-center shadow-inner-top">
         <div class="flex flex-col">
-          <p class="font-bold text-2xl sm:text-3xl xl:text-5xl text-[#042825]">500</p>
-          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-3xl">Especies de árboles</p>
+          <p class="font-bold text-2xl sm:text-3xl xl:text-4xl text-[#042825]">500</p>
+          <p class="text-[#042825] font-medium text-sm sm:text-base xl:text-2xl">Especies de árboles</p>
         </div>
         <img class="w-12 sm:w-14 xl:w-16 ml-auto" src="../components/icons/trees-tree-svgrepo-com.svg" alt="Especies de árboles">
       </div>
@@ -172,14 +160,16 @@ const showAlert = (location) => {
     <Carousel 
       :items="locations" 
       bgColor="#26473c" 
-      txColor="#92a29d" 
+      txColor="#92a29d"
+      txAlign="start" 
     />
 
     <!-- Segundo Carrusel -->
     <Carousel 
       :items="locations" 
       bgColor="#aea646"
-      txColor="#6b6951" 
+      txColor="#6b6951"
+      txAlign="end"
     />
   </div>
 

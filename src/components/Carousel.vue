@@ -4,7 +4,10 @@
     defineProps({
         items: { type: Array, required: true },
         bgColor: { type: String, default: '#26473c' },
-        txColor: { type: String, default: '#91a19c' }
+        txColor: { type: String, default: '#91a19c' },
+        txAlign: { type: String, default: 'center' },
+        pL: {type: String, default: 'p-0'},
+        pR: {type: String, default: 'p-0'}
     });
 
     const carousel = ref(null);
@@ -32,25 +35,28 @@
 </script>
 
 <template>
+  <div 
+    ref="carousel" 
+    class="flex overflow-x-scroll scroll-snap-x snap-mandatory scrollbar-hide space-x-10 p-4 w-full"
+    @mousedown="startDrag($event)" 
+    @mousemove="onDrag($event)" 
+    @mouseup="stopDrag" 
+    @mouseleave="stopDrag"
+  >
     <div 
-      ref="carousel" 
-      class="flex overflow-x-scroll scroll-snap-x snap-mandatory scrollbar-hide space-x-4 p-4 w-full"
-      @mousedown="startDrag($event)" 
-      @mousemove="onDrag($event)" 
-      @mouseup="stopDrag" 
-      @mouseleave="stopDrag"
+      v-for="(item, index) in items" 
+      :key="index" 
+      :style="{ backgroundColor: bgColor, userSelect: 'none' }"
+      class="flex-shrink-0 w-auto h-36 rounded-3xl shadow-inner-top flex flex-col justify-center snap-start"
     >
-      <div 
-        v-for="(item, index) in items" 
-        :key="index" 
-        :style="{ backgroundColor: bgColor, userSelect: 'none' }"
-        class="md:w-auto md:max-w-[320px] h-36 rounded-3xl shadow-inner-top flex flex-col items-center justify-center px-24 snap-start"
-      >
-        <h5 class="text-center text-white text-4xl font-bold">360</h5>
-        <h4 class="text-center text-3xl font-semibold" :style="{ color: txColor}">municipio</h4>
-        <h3 class="text-center text-3xl font-semibold" :style="{ color: txColor}">provincia</h3>
+      <div class="w-auto px-5">
+        <h5 class="text-white text-4xl font-bold" :style="{ textAlign: txAlign }">{{items.length}}</h5>
+        <h4 class="text-3xl font-semibold" :style="{ color: txColor, textAlign: txAlign }">{{item.name}}</h4>
+        <h3 class="text-3xl font-semibold" :style="{ color: txColor, textAlign: txAlign }">{{ item.prov }}</h3>
       </div>
     </div>
-  </template>
+  </div>
+</template>
+
   
   

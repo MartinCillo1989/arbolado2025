@@ -1,14 +1,14 @@
 <script setup>
 import { ref, onMounted, watch, createVNode, render } from "vue";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
-
+import { useRoute } from "vue-router";
 import Alert from "./Alert.vue";
 
 const props = defineProps({
   center: {
     type: Object,
     required: true,
-  },
+  },  
   zoom: {
     type: Number,
     required: true,
@@ -21,6 +21,7 @@ const props = defineProps({
 
 const mapElement = ref(null);
 const map = ref(null);
+const route = useRoute();
 
 onMounted(() => {
   loadGoogleMaps();
@@ -60,7 +61,9 @@ function updateMarkers() {
 
       // Evento click para mostrar el alert personalizado
       marker.addListener("click", () => {
-        showAlert(location);
+        if (route.name === "home") {
+          showAlert(location);
+        }
       });
 
       return marker;
@@ -73,11 +76,10 @@ function updateMarkers() {
 
 // Función para mostrar el alert
 function showAlert(location) {
-  // Crear un contenedor dinámico para el componente
+  
   const container = document.createElement("div");
   document.body.appendChild(container);
 
-  // Crear el nodo virtual del componente Alert
   const vnode = createVNode(Alert, {
     name: location.name,
     arboles: location.arboles,
@@ -85,13 +87,11 @@ function showAlert(location) {
     especies: location.especies,
   });
 
-  // Renderizar el componente en el contenedor
   render(vnode, container);
 
-  // Remover el alert después de 5 segundos
   setTimeout(() => {
-    render(null, container); // Limpia el renderizado
-    container.remove(); // Elimina el contenedor del DOM
+    render(null, container);
+    container.remove();
   }, 5000);
 }
 
