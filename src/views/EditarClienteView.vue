@@ -37,22 +37,23 @@
 </script>
 
 <template>
-    <div>
-        <div class="flex justify-end">
+    <div class="min-h-screen bg-gray-300 mb-5">
+        <div class="flex justify-end p-4">
             <RouterLink to="inicio"
             >
                 Volver
             </RouterLink>
         </div>
-        <Heading>{{titulo}}</Heading>
+        <Heading class="text-center text-2xl font-bold text-gray-800">{{titulo}}</Heading>
 
-        <div class="mx-auto mt-10 bg-white shadow">
-            <div class="mx-auto md:w-2/3 py-20 px-6">
+        <div class="mx-auto mt-10 bg-[rgb(75,101,98)] shadow-lg rounded-lg md:w-2/3">
+            <div class="py-10 px-6 md:px-10 text-white">
             <FormKit
                 type="form"
                 submit-label="Guardar cambios"
                 incomplete-message="No se pudo enviar, revisa los mensajes"
                 @submit="handleSubmit"
+                class="space-y-6"
                 :value="formData"
             >
                 <FormKit 
@@ -65,15 +66,18 @@
                     :validation-messages="{ required: 'El nombre del cliente es obligatorio'}"
                     v-model="formData.nombre"
                 />
-                <FormKit 
+                <FormKit
                     type="text"
-                    label="Apellido"
-                    name="apellido"
-                    placeholder="Apellido de cliente"
-                    validation="required"
-                    :validation-messages="{ required: 'El apellido del cliente es obligatorio'}"
-                    v-model="formData.apellido"
-                />
+                    label="Contraseña"
+                    name="password"
+                    help="Introduce una contraseña segura"
+                    validation="required|min:8"
+                    :validation-messages="{
+                        required: 'La contraseña es obligatoria',
+                        min: 'La contraseña debe tener al menos 8 caracteres'
+                    }"
+                    v-model="formData.password"
+                    />
                 <FormKit 
                     type="email"
                     label="Email"
@@ -85,25 +89,9 @@
                 />
                 <FormKit 
                     type="text"
-                    label="Teléfono"
-                    name="telefono"
-                    placeholder="Teléfono: xxx-xxx-xxxx"
-                    validation="?matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
-                    :validation-messages="{matches:'El formato no es valido'}"
-                    v-model="formData.telefono"
-                />
-                <FormKit 
-                    type="text"
-                    label="Municipio"
-                    name="municipio"
-                    placeholder="Empresa de cliente"
-                    v-model="formData.municipio"
-                />
-                <FormKit 
-                    type="text"
-                    label="Puesto"
-                    name="puesto"
-                    placeholder="Puesto del censista"v-model="formData.puesto"
+                    label="Rol"
+                    name="Rol"
+                    placeholder="Rol del censista"v-model="formData.rol"
                 />
                 
 
