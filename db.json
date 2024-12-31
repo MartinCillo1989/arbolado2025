@@ -1,34 +1,31 @@
 {
   "clientes": [
     {
-      "id": "f09c",
-      "nombre": "Martin",
-      "apellido": "Cillo",
-      "email": "cillomartin.89@gmail.com",
-      "telefono": "123-123-2314",
-      "municipio": "Pérez",
-      "puesto": "Admin",
-      "estado": false
+      "id": "cbe6",
+      "nombre": "José Lopez",
+      "password": "12345678",
+      "confirm_password": "12345678",
+      "email": "jose@gmail.com",
+      "rol": "Tecnico",
+      "estado": true
     },
     {
-      "id": "0ad9",
-      "nombre": "marten",
-      "apellido": "Pérez",
-      "email": "cillomartin.89@gmail.com",
-      "telefono": "123-123-2314",
-      "municipio": "Pérez",
-      "puesto": "ssss",
-      "estado": false
+      "id": "5c95",
+      "nombre": "pepe",
+      "password": "12345678",
+      "confirm_password": "12345678",
+      "email": "pepe@gmail.com",
+      "rol": "Relevador",
+      "estado": 1
     },
     {
-      "id": "28fe",
-      "nombre": "juan",
-      "apellido": "garcia",
-      "email": "lisi@gmail.com",
-      "telefono": "123-123-2314",
-      "municipio": "Soldisney",
-      "puesto": "nn",
-      "estado": false
+      "id": "98a9",
+      "nombre": "Marcos Pe",
+      "password": "12345678",
+      "confirm_password": "12345678",
+      "email": "pepe@gmail.com",
+      "rol": "Relevador",
+      "estado": 1
     }
   ],
   "relevamientos": [

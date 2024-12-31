@@ -56,21 +56,30 @@
         </div>
  
 
-        <Heading>{{ titulo }}</Heading>
-            
-  <div v-if="existenClientes" class="flow-root mx-auto  mt-10 p-5 bg-white shadow">
+        <Heading>{{ titulo }}</Heading>        
+        <div v-if="existenClientes" class="flow-root mt-10 w-full sm:w-[500px] md:w-[800px] mx-auto">
+  <!-- Contenedor externo para el fondo contrastante -->
+  <div class="rounded-md pt-0 bg-[rgb(75,101,98)] p-5">
+    <!-- Encabezado separado con el mismo fondo -->
+    <div class="rounded-md">
+      <table class="min-w-full">
+        <thead>
+          <tr>
+            <th scope="col" class="p-2 text-balance text-sm font-extrabold text-white">Nombre</th>
+            <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Rol</th>
+            <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Estado</th>
+            <th scope="col" class="p-2 text-left text-sm font-extrabold text-white">Acciones</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <!-- Contenedor original de la tabla -->
+    <div class="flow-root w-full rounded-md bg-[rgb(176,194,152)]">
       <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div class="min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <table class="min-w-full divide-y divide-gray-300">
-                  <thead>
-                  <tr>
-                      <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Nombre</th>
-                      <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Municipio</th>
-                      <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Estado</th>
-                      <th scope="col" class="p-2 text-center text-sm font-extrabold text-gray-600">Acciones</th>
-                  </tr>
-                  </thead>
-                  <tbody class="divide-y divide-gray-200 bg-lime-100">
+        <div class="min-w-full py-2 align-middle sm:px-6 lg:px-8">
+          <table class="min-w-full">
+                  
+                  <tbody>
                     <Cliente
                         v-for="cliente in clientes"
                         :key="cliente.id"
@@ -81,9 +90,13 @@
                   </tbody>
               </table>
           </div>
+          
       </div>
+      
   </div>     
-        <p v-else="existenClientes">No hay clientes</p>
+       
+    </div>
+    </div> <p v-else="existenClientes">No hay clientes</p>
     </div>
     
 </template>

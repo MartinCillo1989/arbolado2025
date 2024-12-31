@@ -29,79 +29,96 @@
 </script>
 
 <template>
-    <div>
-        <div class="flex justify-end">
-            <RouterLink to="inicio"
-            >
-                Volver
-            </RouterLink>
-        </div>
-        <Heading>{{titulo}}</Heading>
-
-        <div class="mx-auto mt-10 bg-white shadow">
-            <div class="mx-auto md:w-2/3 py-20 px-6">
+    <div class="min-h-screen bg-gray-300 mb-5">
+      <!-- Botón para volver -->
+      <div class="flex justify-end p-4">
+        <RouterLink
+          to="inicio"
+          class="px-4 py-2 text-sm font-semibold text-white bg-blue-500 rounded-md shadow hover:bg-blue-600 transition duration-300"
+        >
+          Volver
+        </RouterLink>
+      </div>
+  
+      <!-- Título -->
+      <Heading class="text-center text-2xl font-bold text-gray-800">
+        {{ titulo }}
+      </Heading>
+  
+      <!-- Contenedor del formulario -->
+      <div class="mx-auto mt-10 bg-[rgb(75,101,98)] shadow-lg rounded-lg md:w-2/3">
+        <div class="py-10 px-6 md:px-10 text-white">
+          <FormKit
+            type="form"
+            submit-label="Agregar censista"
+            incomplete-message="No se pudo enviar, revisa los mensajes"
+            @submit="handleSubmit"
+            class="space-y-6"
+          >
+            <!-- Campo Nombre -->
             <FormKit
-                type="form"
-                submit-label="Agregar censista"
-                incomplete-message="No se pudo enviar, revisa los mensajes"
-                @submit="handleSubmit"
-            >
-                <FormKit 
-                    type="text"
-                    label="Nombre"
-                    name="nombre"
-                    placeholder="Nombre del censista"
-                    help="Coloca el nombre del cliente que deseas registrar"
-                    validation="required"
-                    :validation-messages="{ required: 'El nombre del censista es obligatorio'}"
-                />
-                <FormKit 
-                    type="text"
-                    label="Apellido"
-                    name="apellido"
-                    placeholder="Apellido del censista"
-                    validation="required"
-                    :validation-messages="{ required: 'El apellido del censista es obligatorio'}"
-                />
-                <FormKit 
-                    type="email"
-                    label="Email"
-                    name="email"
-                    placeholder="Email de cliente"
-                    validation="required|email"
-                    :validation-messages="{ required: 'El email del censista es obligatorio', email:'Coloca un email valido'}"
-                />
-                <FormKit 
-                    type="text"
-                    label="Teléfono"
-                    name="telefono"
-                    placeholder="Teléfono: xxx-xxx-xxxx"
-                    validation="?matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
-                    :validation-messages="{matches:'El formato no es valido'}"
-                />
-                <FormKit 
-                    type="text"
-                    label="Municipio"
-                    name="municipio"
-                    placeholder="Municipio del censista"
-                />
-                <FormKit 
-                    type="text"
-                    label="Puesto"
-                    name="puesto"
-                    placeholder="Puesto del censista"
-                />
-                
+              type="text"
+              label="Nombre"
+              name="nombre"
+              placeholder="Nombre del censista"
+              help="Coloca el nombre del cliente que deseas registrar"
+              validation="required"
+              :validation-messages="{ required: 'El nombre del censista es obligatorio' }"
+            />
+        
+            <FormKit
+            type="password"
+            label="Contraseña"
+            name="password"
+            placeholder="Contraseña"
+            help="Introduce una contraseña segura"
+            validation="required|min:8"
+            :validation-messages="{
+                required: 'La contraseña es obligatoria',
+                min: 'La contraseña debe tener al menos 8 caracteres'
+            }"
+            />
 
+            <FormKit
+            type="password"
+            label="Confirmar Contraseña"
+            name="confirm_password"
+            placeholder="Confirmar contraseña"
+            help="Repite la contraseña para confirmarla"
+            validation="required|same:password"
+            :validation-messages="{
+                required: 'La confirmación de la contraseña es obligatoria',
+                same: 'Las contraseñas no coinciden'
+            }"
+            />
+
+  
+            <!-- Campo Email -->
+            <FormKit
+              type="email"
+              label="Email"
+              name="email"
+              placeholder="Email del censista"
+              validation="required|email"
+              :validation-messages="{ required: 'El email del censista es obligatorio', email: 'Coloca un email válido' }"
+              />
+  
+            <!-- Campo Rol -->
+            <FormKit
+              type="text"
+              label="Rol"
+              name="rol"
+              placeholder="Rol del censista"
+              />
             </FormKit>
-            </div>
         </div>
+      </div>
     </div>
-</template>
-
-<style>
-    .formkit-wrapper {
-        max-width: 100%;
-
-    }
-</style>
+  </template>
+  
+  <style>
+  .formkit-wrapper {
+    max-width: 100%;
+  }
+  </style>
+  
